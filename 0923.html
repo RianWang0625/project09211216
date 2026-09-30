@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>夏日新品｜水果氣泡飲</title>
+
+    <link rel="stylesheet" href="myall.css">
+    <style>
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--mycolor05);
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+            color: var(--mycolor07);
+        }
+
+
+        /* =========================
+           網頁主體
+        ========================= */
+
+        .wrapper {
+            width: 1024px;
+            margin: 0 auto;
+            background-color: var(--mycolor03);
+        }
+
+
+        /* =========================
+           Banner
+        ========================= */
+
+        .logo {
+            width: 100%;
+            height: 300px;
+
+            background-image: url(image/0923-01.avif);
+            background-position: center center;
+            background-size: cover;
+        }
+
+
+        /* =========================
+           導覽列
+        ========================= */
+
+        nav {
+            text-align: center;
+            background-color: var(--mycolor01);
+        }
+
+        nav ul {
+            display: inline-block;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+
+            padding: 15px 25px;
+
+            color: var(--mycolor03);
+
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--mycolor04);
+            color: var(--mycolor07);
+        }
+
+
+        /* =========================
+           主要內容
+        ========================= */
+
+        .content {
+            padding: 30px;
+            background-color: var(--mycolor05);
+        }
+
+        .content_in {
+            padding: 40px 50px;
+
+            background-color: var(--mycolor03);
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           標題
+        ========================= */
+
+         .content_in h1 {
+            color: var(--mycolor01);
+
+            font-size: 36px;
+
+            margin-bottom: 10px;
+        } 
+
+        .content_in h2 {
+            color: var(--mycolor08);
+
+            font-size: 22px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           文章
+        ========================= */
+
+        .content_in p {
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 20px;
+
+            text-align: left;
+        }
+
+
+        /* =========================
+           商品特色
+        ========================= */
+
+        .product_title {
+            margin-top: 30px;
+            margin-bottom: 20px;
+
+            color: var(--mycolor01);
+
+            font-size: 26px;
+        }
+
+
+        .product_box {
+            background-color: var(--mycolor06);
+
+            padding: 25px;
+
+            margin-bottom: 25px;
+
+            border-radius: 10px;
+        }
+
+        .product_box h3 {
+            color: var(--mycolor01);
+
+            margin-bottom: 10px;
+        }
+
+        .product_box p {
+            text-align: center;
+
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           價格
+        ========================= */
+
+        .price {
+            font-size: 30px;
+
+            font-weight: bold;
+
+            color: var(--mycolor08);
+
+            margin: 25px 0;
+        }
+
+
+        /* =========================
+           購買按鈕
+        ========================= */
+
+        .buy_button {
+            display: block;
+
+            width: 180px;
+            height: 50px;
+
+            margin: 20px auto 0;
+
+            line-height: 50px;
+
+            background-color: var(--mycolor08);
+            color: var(--mycolor03);
+
+            text-decoration: none;
+
+            border-radius: 25px;
+
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .buy_button:hover {
+            background-color: var(--mycolor04);
+            color: var(--mycolor07);
+        }
+
+
+        /* =========================
+           Footer
+        ========================= */
+
+        .footer {
+            background-color: var(--mycolor01);
+
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--mycolor03);
+
+            padding: 20px 0;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           平板 RWD
+           1024px 以下
+        ========================= */
+
+        @media screen and (max-width: 1024px) {
+
+            .wrapper {
+                width: 95%;
+            }
+
+            .logo {
+                height: 220px;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+        }
+
+
+        /* =========================
+           手機 RWD
+           600px 以下
+        ========================= */
+
+        @media screen and (max-width: 600px) {
+
+            .wrapper {
+                width: 100%;
+            }
+
+
+            /* Banner */
+
+            .logo {
+                width: 100%;
+                height: 180px;
+
+                background-image: url(image/kitten1.avif);
+            }
+
+
+            /* 手機導覽列 */
+
+            nav {
+                padding: 12px 15px;
+            }
+
+            nav ul {
+                display: block;
+            }
+
+            nav ul li {
+                float: none;
+            }
+
+            nav ul li a {
+                display: block;
+
+                margin-bottom: 8px;
+
+                padding: 12px 0;
+
+                background-color: var(--mycolor02);
+
+                border-radius: 8px;
+            }
+
+            nav ul li a:hover {
+                background-color: var(--mycolor04);
+
+                color: var(--mycolor07);
+            }
+
+
+            /* 手機內容 */
+
+            .content {
+                padding: 15px;
+            }
+
+            .content_in {
+                padding: 30px 20px;
+            }
+
+
+            /* 手機標題 */
+
+            /* .content_in h1 { 
+                font-size: 28px;
+
+                margin-bottom: 10px;
+            }  */
+
+            .content_in h2 {
+                font-size: 18px;
+
+                margin-bottom: 20px;
+            }
+
+
+            /* 手機文章 */
+
+            .content_in p {
+                font-size: 16px;
+
+                line-height: 1.8;
+
+                margin-bottom: 20px;
+            }
+
+
+            /* 商品特色 */
+
+            .product_title {
+                font-size: 22px;
+            }
+
+            .product_box {
+                padding: 20px 15px;
+            }
+
+
+            /* 手機價格 */
+
+            .price {
+                font-size: 26px;
+            }
+
+
+            /* 手機購買按鈕 */
+
+            .buy_button {
+                width: 100%;
+
+                height: 50px;
+
+                line-height: 50px;
+
+                border-radius: 8px;
+            }
+
+
+            /* Footer */
+
+            .footer p {
+                font-size: 13px;
+
+                padding: 15px 0;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <div class="wrapper">
+
+
+        <!-- Banner -->
+
+        <div class="logo">
+        </div>
+
+
+        <!-- 導覽列 -->
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="#">首頁</a>
+                </li>
+
+                <li>
+                    <a href="#">新品上市</a>
+                </li>
+
+                <li>
+                    <a href="#">期間優惠</a>
+                </li>
+
+                <li>
+                    <a href="#">商品介紹</a>
+                </li>
+
+                <li>
+                    <a href="#">門市資訊</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- 主要內容 -->
+
+        <div class="content">
+
+            <div class="content_in">
+
+
+                <h1 class="mytitle-01">
+                    夏日清爽新登場
+                </h1>
+
+
+                <h2>
+                    水果氣泡飲・期間限定上市
+                </h2>
+
+
+                <p class="fw-900">
+                    炎熱的夏天，就需要一杯冰涼又清爽的飲料！
+                    全新水果氣泡飲選用清新的水果風味，
+                    搭配細緻氣泡，每一口都能感受到酸甜果香與沁涼口感。
+                </p>
+
+
+                <p>
+                    不論是上班休息、午後放鬆，
+                    還是和朋友一起出遊，
+                    都能隨時來一杯清爽解渴。
+                    冰冰喝風味更加迷人，陪你度過炎熱夏日。
+                </p>
+
+
+                <h2 class="product_title">
+                    三大必喝特色
+                </h2>
+
+
+                <div class="product_box">
+
+                    <h3>
+                        100% 清爽果香
+                    </h3>
+
+                    <p>
+                        酸甜水果風味搭配氣泡，
+                        清爽不膩口。
+                    </p>
+
+                </div>
+
+
+                <div class="product_box">
+
+                    <h3>
+                        冰涼氣泡口感
+                    </h3>
+
+                    <p>
+                        細緻氣泡入口瞬間綻放，
+                        夏天喝更加暢快。
+                    </p>
+
+                </div>
+
+
+                <div class="product_box">
+
+                    <h3>
+                        期間限定優惠
+                    </h3>
+
+                    <p>
+                        新品上市期間享限定優惠，
+                        趁現在一起來嚐鮮！
+                    </p>
+
+                </div>
+
+
+                <div class="price">
+                    新品優惠價 NT$49
+                </div>
+
+
+                <a href="#" class="buy_button">
+                    立即嚐鮮
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
+
+        <div class="footer">
+
+            <p>
+                夏日水果氣泡飲｜新品期間限定活動
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

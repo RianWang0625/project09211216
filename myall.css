@@ -1,0 +1,63 @@
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap');
+
+        :root {
+            --mycolor01: #007F5F;
+            --mycolor02: #2B9348;
+            --mycolor03: #FFFFFF;
+            --mycolor04: #FFB703;
+            --mycolor05: #FFF8E7;
+            --mycolor06: #F4E1B6;
+            --mycolor07: #333333;
+            --mycolor08: #E63946;
+        }
+
+        body {
+            font-family: "Noto Sans SC", sans-serif;
+        }
+
+        .fw-100 {
+            font-weight: 100;
+        }
+
+        .fw-200 {
+            font-weight: 200;
+        }
+
+        .fw-300 {
+            font-weight: 300;
+        }
+
+        .fw-400 {
+            font-weight: 400;
+        }
+
+        .fw-500 {
+            font-weight: 500;
+        }
+
+        .fw-600 {
+            font-weight: 600;
+        }
+
+        .fw-700 {
+            font-weight: 700;
+        }
+
+        .fw-800 {
+            font-weight: 800;
+        }
+
+        .fw-900 {
+            font-weight: 900;
+        }
+
+        .mytitle-01{
+            font-size: 24px;
+            font-weight: 200;
+            text-align: center;
+            color: #E63946;
+        }
+        .bg-img{
+            background-position: center center;
+            background-size: cover;
+        }

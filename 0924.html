@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="myall.css">
+    <style>
+        /* CSS */
+    </style>
+</head>
+
+<body>
+    <!-- HTML -->
+    <p class="mytitle-01" id="demo"></p>
+    <p class="mytitle-01" id="demo1">123</p>
+    <p class="mytitle-01" id="demo2">132</p>
+    <p class="mytitle-01" id="demo3">231</p>
+    <p class="mytitle-01" id="demo4">321</p>
+    <p class="mytitle-01" id="demo5">312</p>
+    <div id=cars>
+        <p class="mytitle-03" id="cars"></p>
+    </div>
+    <div id="people"><p class="mytitle-01" id="people"></p></div>
+    <div id="demo30"></div>
+    <img src="image/0923-01.avif" width="100px" alt="">
+    <script src="jquery-4.0.0.js"></script>
+    <script>
+        // JS
+        document.getElementById("demo").innerHTML = "Helloworld";
+        document.getElementById("demo1").innerHTML = "MY first js";
+        document.getElementById("demo2").innerHTML = "Its must be interesting"
+        document.getElementById("demo3").innerHTML = "GGs"
+        document.getElementById("demo4").innerHTML = "frontend is good"
+        document.getElementById("demo5").innerHTML = "glhf"
+
+        // jQuery
+        $("#demo3").html("GGS");
+        $("#demo4").html("my first jquery")
+        $("#demo5").html("backend is the best")
+
+        for (i = 1; i < 10; i++) {
+            for (j = 1; j < 10; j++) {
+                $("#demo30").append('<img src="image/0923-01.avif" width="100px" alt="">')
+            }
+        }
+
+        for (i = 1; i < 11; i++) {
+            $("#demo5").append('<p class="mytitle-01" id="demo5">312</p>');
+        }
+        const cars = ["book", "game", "code", "fish", "bird", "tree", "moon", "star", "milk", "door"];
+        for (i = 0; i < cars.length; i++) {
+            console.log(cars[i]);
+        }
+        cars.forEach(function (item, index) {
+            $("#cars").append('<p class="mytitle-01" id="cars">' + index + ':' + item + '</p>')
+        });
+        const people = [
+            {
+                "name": "小明",
+                "age": "18",
+                "city": "台中市"
+            },
+            {
+                "name": "小華",
+                "age": "20",
+                "city": "台北市"
+            },
+            {
+                "name": "小美",
+                "age": "22",
+                "city": "高雄市"
+            },
+            {
+                "name": "小杰",
+                "age": "19",
+                "city": "台南市"
+            },
+            {
+                "name": "小安",
+                "age": "21",
+                "city": "新竹市"
+            }
+            
+        ]
+        people.forEach(function(item, index){
+            $("#people").append('<p class="mytitle-01" id="people">'+index+':'+'姓名 '+item.name+' '+'年齡 '+item.age+' '+'居住地 '+item.city+'</p>')
+        })
+    </script>
+</body>
+
+</html>
