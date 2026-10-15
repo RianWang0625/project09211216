@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH8</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="myall.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="display-3 text-bg-primary fw-900 text-center py-3 mt-3">課程線上報名表</div>
+            </div>
+            <div class="col-12">
+                <ul>
+                    <li>1. Email : 包含@這個字元,使用include();8-15字</li>
+                    <li>2. 密碼 : 8-16字</li>
+                    <li>3. 手機 : 09開頭,使用starwith</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="username" class="form-label">姓名</label>
+                    <input type="text" class="form-control form-control-lg " id="username">
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <button class="btn btn-primary" id="ok_btn">確認送出</button>
+                <button class="btn btn-secondary">重新輸入</button>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-12">
+                <div class="display-3 text-bg-success fw-900 text-center py-3 mt-3">課程線上報名表</div>
+                <div class="col-12" id="showmsg"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">密碼</label>
+                    <input type="password" class="form-control form-control-lg " id="pwd">
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <button class="btn btn-primary" id="ok_pwd_btn">確認送出</button>
+                <button class="btn btn-secondary">重新輸入</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control form-control-lg" id="email">
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <button class="btn btn-primary" id="ok_email_btn">確認送出</button>
+                <button class="btn btn-secondary">重新輸入</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="phone" class="form-label">手機</label>
+                    <input type="tel" class="form-control form-control-lg" id="phone">
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <button class="btn btn-primary" id="ok_phone_btn">確認送出</button>
+                <button class="btn btn-secondary">重新輸入</button>
+            </div>
+        </div>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="jquery-4.0.0.js"></script>
+    <script>
+        let flag_username = false;
+        let flag_pwd = false;
+        let flag_email = false;
+        let flag_phone = false;
+        $(function () {
+            //即時監聽username
+            $("#username").on("input", function () {
+                console.log("input: " + $(this).val().length);
+                if ($(this).val().length > 1 && $(this).val().length < 9) {
+                    console.log("符合規定")
+                    $(this).removeClass("is-invalid")
+                    $(this).addClass("is-valid")
+                    flag_username = true;
+                }
+                else {
+                    console.log("不符合規定")
+                    $(this).removeClass("is-valid")
+                    $(this).addClass("is-invalid")
+                    flag_username = false;
+                }
+            });
+            $("#pwd").on("input", function () {
+                console.log("input: " + $(this).val().length)
+                if ($(this).val().length >= 8 && $(this).val().length <= 16) {
+                    console.log("OK")
+                    $(this).removeClass("is-invalid")
+                    $(this).addClass("is-valid")
+                    flag_pwd = true;
+                }
+                else {
+                    console.log("not ok")
+                    $(this).removeClass("is-valid")
+                    $(this).addClass("is-invalid")
+                    flag_pwd = false
+                }
+            });
+            $("#email").on("input", function () {
+                const email = $(this).val();
+                console.log("input: " + $(this).length)
+                if (email.includes("@") && email.length >= 8 && email.length <= 15) {
+                    console.log("ok")
+                    $(this).removeClass("is-invalid")
+                    $(this).addClass("is-valid")
+                    flag_email = true
+                }
+                else {
+                    console.log("not ok")
+                    $(this).removeClass("is-valid")
+                    $(this).addClass("is-invalid")
+                    flag_email = false
+                }
+            });
+            $("#phone").on("input", function () {
+                console.log("input: " + $(this).val().length)
+                if ($(this).val().length == 10 && $(this).val().startsWith("09")) {
+                    console.log("OK")
+                    $(this).removeClass("is-invalid")
+                    $(this).addClass("is-valid")
+                    flag_phone = true;
+                }
+                else {
+                    console.log("not ok")
+                    $(this).removeClass("is-valid")
+                    $(this).addClass("is-invalid")
+                    flag_phone = false
+                }
+            });
+            //輸入完後離開欄位再觸發
+            //$("#username").on("change",function(){
+            //   console.log("change: " + $(this).val());
+            //});
+            //監聽ok-btn
+            $("#ok_btn").on("click", function () {
+                if (flag_username == true) {
+                    console.log("符合規定");
+                    const strHTML = `<div class="h2">姓名: ${$("#username").val()}</div>`
+                    $("#showmsg").html(strHTML)
+                }
+                else {
+                    console.log("不符合規定");
+                    alert("不符合規定")
+                }
+            })
+            $("#ok_pwd_btn").on("click", function () {
+                if (flag_pwd == true) {
+                    console.log("符合規定");
+                    const strHTML = `<div class="h2">密碼: ${$("#pwd").val()}</div>`
+                    $("#showmsg").html(strHTML)
+                }
+                else {
+                    console.log("不符合規定");
+                    alert("不符合規定")
+                }
+            })
+            $("#ok_email_btn").on("click", function () {
+                if (flag_email == true) {
+                    console.log("符合規定");
+                    const strHTML = `<div class="h2">email: ${$("#email").val()}</div>`
+                    $("#showmsg").html(strHTML)
+                }
+                else {
+                    console.log("不符合規定");
+                    alert("不符合規定")
+                }
+            })
+            $("#ok_phone_btn").on("click", function () {
+                if (flag_phone == true) {
+                    console.log("符合規定");
+                    const strHTML = `<div class="h2">手機 ${$("#phone").val()}</div>`
+                    $("#showmsg").html(strHTML)
+                }
+                else {
+                    console.log("不符合規定");
+                    alert("不符合規定")
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
