@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="myall.css">
+    <style>
+        @media screen and (max-width: 768px) {
+            .table-rwd thead{
+                display: none;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) " : ";
+                font-weight: 900;
+                color: blueviolet;
+                font-size: 20px;
+                display: block;
+                float: left;
+                width: 30%;
+                text-align: center;
+                padding-right: 10px;
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 70%;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display-2 fw-900 text-center">飲料產品列表</div>
+        <table class="table mt-4 table-bordered table-sm table-rwd">
+            <thead class="table-dark">
+
+                <tr>
+                    <th>產品編號</th>
+                    <th>產品名稱</th>
+                    <th>產品價格</th>
+                    <th>產品數量</th>
+                    <th>產品備註</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td data-th="產品編號">01</td>
+                    <td data-th="產品名稱">美式</td>
+                    <td data-th="產品價格">60</td>
+                    <td data-th="產品數量">10</td>
+                    <td data-th="產品備註">無糖去冰</td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>拿鐵</td>
+                    <td>70</td>
+                    <td>10</td>
+                    <td>無糖微冰</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="jquery-4.0.0.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地方美食餐廳列表</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="myall.css">
+    <style>
+        /* =========================
+   電腦版美化
+========================= */
+
+        body {
+            background-color: #1f2329;
+            color: #d8dee9;
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+        }
+
+        .container {
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        /* 大標題 */
+        .display-2 {
+            color: #e5e9f0;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* 整張表格 */
+        .table-rwd {
+            background-color: #292e36;
+            color: #d8dee9;
+            border-color: #3d444d;
+        }
+
+        /* 表頭 */
+        .table-rwd thead {
+            background-color: #343a43;
+            color: #f1f3f5;
+        }
+
+        /* 表頭每一格 */
+        .table-rwd thead th {
+            padding: 15px;
+            text-align: center;
+            vertical-align: middle;
+            border-color: #454c56;
+        }
+
+        /* 每一格餐廳資料 */
+        .table-rwd tbody td {
+            padding: 15px;
+            color: #cfd5dc;
+            border-color: #3d444d;
+            vertical-align: middle;
+        }
+
+        /* 滑鼠移上去 */
+        .table-rwd tbody tr {
+            transition: 0.2s;
+        }
+
+        .table-rwd tbody tr:hover {
+            background-color: #343a43;
+        }
+
+        /* 餐廳圖片 */
+        .table-rwd img {
+            width: 100%;
+            max-width: 220px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+
+        /* =========================
+   你原本的手機版
+   ↓ 完全不動 ↓
+========================= */
+
+        @media screen and (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody {
+                border: 2px;
+                margin-top: 15px;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 2px solid #d16464;
+                margin-top: 15px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th);
+                font-size: 20px;
+                font-weight: 900;
+                display: block;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 15;
+                color: #d16464;
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 70%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody {
+                border: 2px;
+                margin-top: 15px;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 2px solid #d16464;
+                margin-top: 15px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th);
+                font-size: 20px;
+                font-weight: 900;
+                display: block;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 15;
+                color: #d16464;
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display-2 fw-900 text-center my-4">地方美食餐廳列表</div>
+        <table class="table table-bordered table-rwd">
+            <thead class="dark">
+                <tr>
+                    <th width="10%">餐廳名稱</th>
+                    <th width="25%">餐廳圖片</th>
+                    <th width="10%">餐廳地址</th>
+                    <th width="10%">餐廳電話</th>
+                    <th width="10%">餐廳信箱</th>
+                    <th width="10%">餐廳簡介</th>
+                </tr>
+            </thead>
+            <tbody id="mybody">
+                <tr>
+                    <td data-th="餐廳名稱"><span></span></td>
+                    <td data-th="餐廳圖片"><span><img src="image/0923-01.avif" alt=""></span></td>
+                    <td data-th="餐廳地址"><span></span></td>
+                    <td data-th="餐廳電話"><span></span></td>
+                    <td data-th="餐廳信箱"><span></span></td>
+                    <td data-th="餐廳簡介"><span class="text-truncate" style="max-width: 450px; display: block;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="jquery-4.0.0.js"></script>
+    <script>
+        //主程式
+        $(function () {
+            //抓取外部資料
+            $.ajax({
+                type: "GET",
+                url: "https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx?IsTransData=1&UnitId=193",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    console.log("失敗")
+                }
+            })
+        })
+
+        function showdata(data) {
+            console.log(data)
+
+            data.forEach(function (item) {
+                console.log(item.Name)
+                const strHTML = `
+                    <tr>
+                        <td data-th="餐廳名稱"><span>${item.Name}</span></td>
+                        <td data-th="餐廳圖片"><span><img src="${item.PicURL}" alt=""></span></td>
+                        <td data-th="餐廳地址"><span>${item.City}${item.Town}${item.Address}</span></td>
+                        <td data-th="餐廳電話"><span>${item.Tel}</span></td>
+                        <td data-th="餐廳信箱"><span>${item.Email}</span></td>
+                        <td data-th="餐廳簡介"><span>${item.FoodFeature}</span></td>
+                    </tr>`
+                $("#mybody").append(strHTML);
+            });
+        }
+    </script>
+</body>
+
+</html>
