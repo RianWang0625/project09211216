@@ -1,28 +1,1097 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="zh-Hant">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>個人作品集 | Full-stack Developer</title>
+
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="all.min.css">
     <link rel="stylesheet" href="myall.css">
+
+    <style>
+        :root {
+            --bg: #0b1120;
+            --panel: #141e31;
+            --line: #29364d;
+            --ink: #f1f5f9;
+            --muted: #a6b4c8;
+            --accent: #5eead4;
+            --accent2: #818cf8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Microsoft JhengHei", system-ui, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* 導覽列 */
+        .navbar {
+            background: rgba(11, 17, 32, 0.94);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(16px);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: white !important;
+        }
+
+        .brand-dot {
+            color: var(--accent);
+        }
+
+        .navbar .nav-link {
+            color: #cbd5e1 !important;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+        /* 按鈕 */
+        .btn-glow {
+            background: var(--accent);
+            color: #08211e;
+            border: 0;
+            font-weight: 700;
+        }
+
+        .btn-glow:hover {
+            background: #99f6e4;
+            color: #08211e;
+        }
+
+        .btn-ghost {
+            border: 1px solid #5b6a82;
+            color: #e2e8f0;
+        }
+
+        .btn-ghost:hover {
+            background: #25334a;
+            color: white;
+        }
+
+        /* 首頁主視覺 */
+        .hero {
+            position: relative;
+            min-height: 76vh;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(100deg,
+                    rgba(5, 11, 23, .94),
+                    rgba(8, 15, 30, .75) 55%,
+                    rgba(8, 15, 30, .3)),
+                url("image/kitten1.avif") center / cover;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg,
+                    var(--bg),
+                    transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem, 6vw, 5.1rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #c7d2e3;
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        /* 共用區塊 */
+        .section-pad {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            font-size: clamp(1.9rem, 3vw, 2.7rem);
+            font-weight: 800;
+        }
+
+        .section-sub {
+            color: var(--muted);
+            line-height: 1.9;
+        }
+
+        /* 關於我圖片 */
+        .photo-panel {
+            min-height: 460px;
+            border-radius: 24px;
+            background:
+                linear-gradient(0deg,
+                    rgba(9, 17, 31, .25),
+                    rgba(9, 17, 31, .1)),
+                url("image/0923-01.avif") center / cover;
+            border: 1px solid var(--line);
+        }
+
+        /* 卡片 */
+        .glass-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 26px;
+            height: 100%;
+            transition: transform .2s, border-color .2s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            border-color: #5c718f;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid #355064;
+            background: #162b3a;
+            color: #9eeadf;
+            border-radius: 30px;
+            padding: 6px 12px;
+            font-size: .8rem;
+            margin: 4px 4px 4px 0;
+        }
+
+        /* 專案圖片區 */
+        .project-cover {
+            height: 180px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #26335b, #164e63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: #b5fff3;
+        }
+
+        /* 頁尾 */
+        .footer {
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            padding: 30px 0;
+        }
+
+        /* 登入與註冊視窗 */
+        .modal-content {
+            background: #f8fafc;
+            color: #1e293b;
+            border: 0;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: #d9f9f1;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .modal-footer .btn-link {
+            margin-right: auto;
+        }
+
+        .form-control {
+            border-radius: 9px;
+        }
+
+        .form-check-input:checked {
+            background-color: #0d9488;
+            border-color: #0d9488;
+        }
+
+        @media (max-width: 767px) {
+            .section-pad {
+                padding: 60px 0;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            .photo-panel {
+                min-height: 280px;
+            }
+
+            .glass-card {
+                padding: 20px;
+            }
+        }
+
+
+        /* S05 我的工作信念 */
+
+        #s05 {
+            background-color: #0b1120;
+            color: white;
+        }
+
+        .belief-card {
+            background-color: #141e31;
+            border: 1px solid #29364d;
+            border-radius: 18px;
+            padding: 40px 30px;
+            text-align: center;
+            height: 100%;
+
+            /* 動畫時間 */
+            transition: all 0.3s ease;
+        }
+
+        /* 滑鼠移入卡片 */
+        .belief-card:hover {
+            transform: translateY(-10px);
+            border-color: #5eead4;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .belief-icon {
+            font-size: 40px;
+            color: #5eead4;
+            margin-bottom: 25px;
+        }
+
+        .belief-card h4 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .belief-card p {
+            color: #a6b4c8;
+            line-height: 1.9;
+        }
+
+
+        /* Section 06：關於我 */
+
+        #s06 {
+            background: #101a2c;
+            color: #f1f5f9;
+            overflow: hidden;
+        }
+
+        #s06 .about-image {
+            width: 100%;
+            height: 100%;
+            min-height: 550px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* 圖片右側漸層 */
+        #s06 .about-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    transparent 60%,
+                    rgba(16, 26, 44, 0.65));
+        }
+
+        /* 右側文字區 */
+        #s06 .about-content {
+            padding: 75px 8%;
+            max-width: 850px;
+        }
+
+        #s06 .about-label {
+            color: #5eead4;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        #s06 .about-title {
+            font-size: clamp(28px, 3vw, 46px);
+            font-weight: 800;
+            line-height: 1.4;
+            margin-bottom: 28px;
+        }
+
+        #s06 .about-highlight {
+            color: #5eead4;
+        }
+
+        #s06 .about-description {
+            color: #a6b4c8;
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        /* 技術標籤 */
+        #s06 .about-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 28px 0;
+        }
+
+        #s06 .about-skills span {
+            padding: 8px 16px;
+            border: 1px solid #355064;
+            background: #162b3a;
+            color: #9eeadf;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+
+        /* 按鈕 */
+        #s06 .about-btn {
+            background: #5eead4;
+            color: #08211e;
+            border: none;
+            border-radius: 10px;
+            padding: 13px 25px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        #s06 .about-btn:hover {
+            background: #99f6e4;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(94, 234, 212, 0.2);
+        }
+
+        /* 手機版 */
+        @media (max-width: 767px) {
+            #s06 .about-image {
+                min-height: 280px;
+            }
+
+            #s06 .about-image::after {
+                background: linear-gradient(0deg,
+                        #101a2c,
+                        transparent 65%);
+            }
+
+            #s06 .about-content {
+                padding: 45px 24px 60px;
+            }
+
+            #s06 .about-title {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <section id="s01" class="bg-secondary">
+
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container py-2">
+
+            <a class="navbar-brand" href="#top">
+                DEV<span class="brand-dot">.</span> PORTFOLIO
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="展開選單">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">關於我</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">技術能力</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">專案作品</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">聯絡方式</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-ghost btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">
+                            登入
+                        </button>
+                    </li>
+
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-glow btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#registerModal">
+                            註冊
+                        </button>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- 首頁主視覺 -->
+    <header id="top" class="hero">
+        <div class="container">
             <div class="row">
-                <div class="text-end">
-                    <a href="#"><i class="fa-brands fa-threads fa-2x text-black"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter fa-2x text-black"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram fa-2x text-danger"></i></a>
+                <div class="col-lg-9">
+
+                    <div class="eyebrow mb-3">
+                        HELLO, WELCOME TO MY PORTFOLIO
+                    </div>
+
+                    <h1>
+                        用程式實現想法，<br>
+                        <span class="gradient-text">
+                            讓創意真正運作。
+                        </span>
+                    </h1>
+
+                    <p class="mt-4 mb-4">
+                        專注於前後端整合與實際問題解決。
+                        持續透過 JavaScript、React、Python
+                        與資料庫技術，打造清楚、穩定且實用的網站應用。
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#projects" class="btn btn-glow btn-lg px-4">
+                            探索我的作品
+                        </a>
+
+                        <a href="#about" class="btn btn-ghost btn-lg px-4">
+                            了解更多
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 關於我 -->
+    <section id="about" class="section-pad">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+
+                <div class="col-lg-5">
+                    <div class="photo-panel" role="img" aria-label="個人作品集介紹圖片">
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+
+                    <div class="eyebrow mb-2">ABOUT ME</div>
+
+                    <h2 class="section-heading mb-4">
+                        不只是撰寫程式，<br>
+                        更重視
+                        <span class="gradient-text">
+                            解決問題的過程。
+                        </span>
+                    </h2>
+
+                    <p class="section-sub">
+                        從介面設計、API 串接到資料庫操作，
+                        我喜歡將不同技術整合成真正能使用的功能。
+                        每一個專案，都是練習分析需求、
+                        理解架構與提升開發能力的機會。
+                    </p>
+
+                    <p class="section-sub mb-4">
+                        目前持續精進全端開發技能，
+                        並以實際作品呈現學習成果。
+                    </p>
+
+                    <div class="row g-3">
+
+                        <div class="col-6 col-md-3">
+                            <div class="glass-card text-center p-3">
+                                <div class="stat-number">4</div>
+                                <small class="muted">作品數量*</small>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="glass-card text-center p-3">
+                                <div class="stat-number">6</div>
+                                <small class="muted">接觸技術*</small>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="glass-card text-center p-3">
+                                <div class="stat-number">3</div>
+                                <small class="muted">程式語言*</small>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="glass-card text-center p-3">
+                                <div class="stat-number">∞</div>
+                                <small class="muted">持續學習</small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <small class="muted d-block mt-3">
+                        * 數字為排版示例，正式公開前請依實際情況確認。
+                    </small>
+
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- 技術能力 -->
+    <section id="skills" class="section-pad" style="background: #101a2c;">
+
+        <div class="container">
+
+            <div class="eyebrow mb-2">TECH STACK</div>
+
+            <h2 class="section-heading mb-3">
+                持續累積的技術能力
+            </h2>
+
+            <p class="section-sub mb-4">
+                從前端互動到後端資料處理，
+                逐步建立完整的開發觀念。
+            </p>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <h4>前端開發</h4>
+
+                        <p class="muted">
+                            網頁介面、互動效果與響應式設計。
+                        </p>
+
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <h4>後端開發</h4>
+
+                        <p class="muted">
+                            REST API、資料驗證與業務邏輯。
+                        </p>
+
+                        <span class="tag">Python</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">C#</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <h4>資料與工具</h4>
+
+                        <p class="muted">
+                            資料庫操作、版本管理與專案整合。
+                        </p>
+
+                        <span class="tag">MySQL</span>
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 專案作品 -->
+    <section id="projects" class="section-pad">
+        <div class="container">
+
+            <div class="eyebrow mb-2">SELECTED WORK</div>
+
+            <h2 class="section-heading mb-3">
+                專案作品
+            </h2>
+
+            <p class="section-sub mb-4">
+                不只展示畫面，也重視功能如何串接與運作。
+            </p>
+
+            <div class="row g-4">
+
+                <!-- AI Marketplace -->
+                <div class="col-md-6">
+                    <article class="glass-card">
+
+                        <div class="project-cover mb-4">
+                            &lt;/&gt;
+                        </div>
+
+                        <h4>AI Marketplace</h4>
+
+                        <p class="muted">
+                            以 React、FastAPI 與 MySQL
+                            製作的電商平台練習專案，
+                            包含商品管理、圖片上傳與前後端 API 整合；
+                            會員與訂單功能持續開發中。
+                        </p>
+
+                        <span class="tag">React</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">MySQL</span>
+
+                        <div class="mt-3">
+                            <a class="btn btn-glow" href="https://github.com/RianWang0625/AI-Marketplace"
+                                target="_blank" rel="noopener noreferrer">
+                                查看 GitHub
+                            </a>
+                        </div>
+
+                    </article>
+                </div>
+
+                <!-- ERP -->
+                <div class="col-md-6">
+                    <article class="glass-card">
+
+                        <div class="project-cover mb-4">
+                            { }
+                        </div>
+
+                        <h4>ERP 桌面管理系統</h4>
+
+                        <p class="muted">
+                            以 C# Windows Forms 與 SQL Server
+                            獨立開發的小型 ERP 專題，
+                            練習桌面介面與資料庫整合。
+                        </p>
+
+                        <span class="tag">C#</span>
+                        <span class="tag">WinForms</span>
+                        <span class="tag">SQL Server</span>
+
+                        <div class="mt-3 muted">
+                            專案內容與展示連結可後續補充
+                        </div>
+
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡方式 -->
+    <section id="contact" class="section-pad" style="background: #101a2c;">
+
+        <div class="container text-center">
+
+            <div class="eyebrow mb-2">LET'S CONNECT</div>
+
+            <h2 class="section-heading mb-3">
+                一起交流技術與想法
+            </h2>
+
+            <p class="section-sub mb-4">
+                歡迎透過 GitHub 了解我的專案與開發歷程。
+            </p>
+
+            <a class="btn btn-glow btn-lg px-4" href="https://github.com/RianWang0625" target="_blank"
+                rel="noopener noreferrer">
+                前往 GitHub
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- S05 我的工作信念 -->
+    <section id="s05" class="py-5">
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">
+                    我的<span class="text-success">工作信念</span>
+                </h2>
+                <p class="text-secondary">
+                    持續學習、重視品質、勇於挑戰
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- 第一張卡片 -->
+                <div class="col-md-4">
+                    <div class="belief-card">
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <h4>持續學習</h4>
+
+                        <p>
+                            保持對新技術的好奇心，
+                            持續學習程式設計與開發工具，
+                            不斷提升自己的專業能力。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 第二張卡片 -->
+                <div class="col-md-4">
+                    <div class="belief-card">
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <h4>重視品質</h4>
+
+                        <p>
+                            不只追求功能能夠運作，
+                            更重視程式碼的可讀性、
+                            維護性與使用者體驗。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 第三張卡片 -->
+                <div class="col-md-4">
+                    <div class="belief-card">
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+
+                        <h4>勇於挑戰</h4>
+
+                        <p>
+                            面對開發過程中的問題，
+                            主動尋找解決方法，
+                            透過實作與除錯累積經驗。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 06：關於我 -->
+    <section id="s06" class="about-section">
+
+        <div class="container-fluid p-0">
+            <div class="row g-0 align-items-stretch">
+
+                <!-- 左邊：圖片 -->
+                <div class="col-md-5 d-none d-md-block">
+                    <div class="about-image bg-img" style="background-image: url('image/0923-01.avif');">
+                    </div>
+                </div>
+
+                <!-- 右邊：個人介紹 -->
+                <div class="col-md-7">
+                    <div class="about-content">
+
+                        <div class="about-label">
+                            ABOUT ME / 關於我
+                        </div>
+
+                        <h2 class="about-title">
+                            不只是撰寫程式，<br>
+                            更是<span class="about-highlight">打造解決方案。</span>
+                        </h2>
+
+                        <p class="about-description">
+                            我正朝全端軟體工程師的方向發展，
+                            持續學習前端介面、後端 API 與資料庫整合，
+                            希望透過程式開發解決實際問題。
+                        </p>
+
+                        <p class="about-description">
+                            目前正在開發 AI Marketplace 電商平台，
+                            使用 React、FastAPI 與 MySQL，
+                            已完成商品管理、圖片上傳與 API 串接等功能，
+                            並持續擴充會員及訂單系統。
+                        </p>
+
+                        <!-- 技術標籤 -->
+                        <div class="about-skills">
+                            <span>React</span>
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>MySQL</span>
+                        </div>
+
+                        <!-- 按鈕 -->
+                        <a href="#projects" class="btn about-btn">
+                            了解我的作品
+                            <i class="fa-solid fa-arrow-right ms-2"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <div class="container d-flex flex-wrap justify-content-between gap-2">
+            <span>© 2026 Developer Portfolio</span>
+            <span>Built with Bootstrap 5 · HTML · CSS</span>
+        </div>
+    </footer>
+
+    <!-- 會員註冊 Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true"
+        data-bs-backdrop="static">
+
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">
+                        建立會員帳號
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row g-4">
+
+                        <!-- 左側會員條款 -->
+                        <div class="col-md-6">
+
+                            <h3>會員條款與使用守則</h3>
+
+                            <p>
+                                1. 帳號安全：會員應妥善保管帳號及密碼，
+                                不得將帳號轉借他人使用。
+                            </p>
+
+                            <p>
+                                2. 個人資料：會員應提供正確有效的註冊資訊，
+                                並同意平台依隱私權政策處理相關個人資料。
+                            </p>
+
+                            <p>
+                                3. 合法使用：不得利用本平台從事違法行為、
+                                散布惡意程式或侵害他人權益。
+                            </p>
+
+                            <p>
+                                4. 內容規範：會員發布的文字、
+                                圖片及其他內容不得包含侵權或不當資訊。
+                            </p>
+
+                            <p>
+                                5. 違規處理：違反規範可能導致警告、
+                                功能限制或帳號停用。
+                            </p>
+
+                            <div class="form-check form-switch mt-3">
+                                <input class="form-check-input" type="checkbox" role="switch" id="agreeTerms">
+
+                                <label class="form-check-label" for="agreeTerms">
+                                    我已閱讀並同意會員條款
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <!-- 右側註冊欄位 -->
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+                                <label for="username" class="form-label">
+                                    帳號
+                                </label>
+                                <input type="text" class="form-control" id="username" placeholder="請輸入帳號"
+                                    autocomplete="username">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">
+                                    密碼
+                                </label>
+                                <input type="password" class="form-control" id="password" placeholder="請輸入密碼"
+                                    autocomplete="new-password">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">
+                                    確認密碼
+                                </label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="請再次輸入密碼"
+                                    autocomplete="new-password">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">
+                                    Email
+                                </label>
+                                <input type="email" class="form-control" id="email" placeholder="請輸入 Email"
+                                    autocomplete="email">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-link me-auto text-decoration-none" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        已有帳號，立即登入
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        取消
+                    </button>
+
+                    <button type="button" class="btn btn-primary" id="btnRegister">
+                        確認
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 會員登入 Modal -->
+    <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="loginModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">
+                        歡迎回來
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="loginUsername" class="form-label">
+                            帳號
+                        </label>
+
+                        <input type="text" class="form-control" id="loginUsername" placeholder="請輸入帳號"
+                            autocomplete="username">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">
+                            密碼
+                        </label>
+
+                        <input type="password" class="form-control" id="loginPassword" placeholder="請輸入密碼"
+                            autocomplete="current-password">
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-link me-auto text-decoration-none" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">
+                        尚未有帳號，立即註冊
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        取消
+                    </button>
+
+                    <button type="button" class="btn btn-primary" id="btnLogin">
+                        確認
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script src="bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
