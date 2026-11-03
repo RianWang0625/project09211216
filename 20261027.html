@@ -23,7 +23,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 85px;
         }
 
         body {
@@ -37,118 +37,14 @@
             text-decoration: none;
         }
 
+        section {
+            scroll-margin-top: 85px;
+        }
+
         .muted {
             color: var(--muted);
         }
 
-        /* 導覽列 */
-        .navbar {
-            background: rgba(11, 17, 32, 0.94);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(16px);
-        }
-
-        .navbar-brand {
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: white !important;
-        }
-
-        .brand-dot {
-            color: var(--accent);
-        }
-
-        .navbar .nav-link {
-            color: #cbd5e1 !important;
-        }
-
-        .navbar .nav-link:hover {
-            color: var(--accent) !important;
-        }
-
-        /* 按鈕 */
-        .btn-glow {
-            background: var(--accent);
-            color: #08211e;
-            border: 0;
-            font-weight: 700;
-        }
-
-        .btn-glow:hover {
-            background: #99f6e4;
-            color: #08211e;
-        }
-
-        .btn-ghost {
-            border: 1px solid #5b6a82;
-            color: #e2e8f0;
-        }
-
-        .btn-ghost:hover {
-            background: #25334a;
-            color: white;
-        }
-
-        /* 首頁主視覺 */
-        .hero {
-            position: relative;
-            min-height: 76vh;
-            display: flex;
-            align-items: center;
-            background:
-                linear-gradient(100deg,
-                    rgba(5, 11, 23, .94),
-                    rgba(8, 15, 30, .75) 55%,
-                    rgba(8, 15, 30, .3)),
-                url("image/kitten1.avif") center / cover;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg,
-                    var(--bg),
-                    transparent 40%);
-            pointer-events: none;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .eyebrow {
-            color: var(--accent);
-            letter-spacing: 3px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.6rem, 6vw, 5.1rem);
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -1px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg,
-                    var(--accent),
-                    var(--accent2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            max-width: 600px;
-            color: #c7d2e3;
-            font-size: 1.1rem;
-            line-height: 1.9;
-        }
-
-        /* 共用區塊 */
         .section-pad {
             padding: 90px 0;
         }
@@ -163,37 +59,160 @@
             line-height: 1.9;
         }
 
-        /* 關於我圖片 */
-        .photo-panel {
-            min-height: 460px;
-            border-radius: 24px;
-            background:
-                linear-gradient(0deg,
-                    rgba(9, 17, 31, .25),
-                    rgba(9, 17, 31, .1)),
-                url("image/0923-01.avif") center / cover;
-            border: 1px solid var(--line);
+        .eyebrow {
+            color: var(--accent);
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
-        /* 卡片 */
+        .gradient-text {
+            background: linear-gradient(90deg,
+                    var(--accent),
+                    var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* S01 導覽列 */
+        #s01 {
+            z-index: 1030;
+        }
+
+        #s01 .navbar {
+            background: rgba(11, 17, 32, 0.95);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(16px);
+        }
+
+        #s01 .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .brand-dot {
+            color: var(--accent);
+        }
+
+        #s01 .nav-link {
+            color: #cbd5e1;
+            transition: color 0.2s;
+        }
+
+        #s01 .nav-link:hover {
+            color: var(--accent);
+        }
+
+        /* 共用按鈕 */
+        .btn-glow {
+            background: var(--accent);
+            color: #08211e;
+            border: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            background: #99f6e4;
+            color: #08211e;
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            border: 1px solid #5b6a82;
+            color: #e2e8f0;
+        }
+
+        .btn-ghost:hover {
+            background: #25334a;
+            color: white;
+        }
+
+        /* S02 首頁主視覺 */
+        #s02 {
+            position: relative;
+            min-height: 76vh;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(100deg,
+                    rgba(5, 11, 23, 0.94),
+                    rgba(8, 15, 30, 0.75) 55%,
+                    rgba(8, 15, 30, 0.3)),
+                url("image/kitten1.avif") center / cover;
+        }
+
+        #s02::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg,
+                    var(--bg),
+                    transparent 40%);
+            pointer-events: none;
+        }
+
+        #s02 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        #s02 h1 {
+            font-size: clamp(2.6rem, 6vw, 5.1rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        #s02 p {
+            max-width: 600px;
+            color: #c7d2e3;
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        /* 共用卡片 */
         .glass-card {
             background: var(--panel);
             border: 1px solid var(--line);
             border-radius: 20px;
             padding: 26px;
             height: 100%;
-            transition: transform .2s, border-color .2s;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .glass-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             border-color: #5c718f;
+        }
+
+        /* S03 個人介紹 */
+        #s03 {
+            background: #0b1120;
+        }
+
+        #s03 .photo-panel {
+            min-height: 460px;
+            border-radius: 24px;
+            background:
+                linear-gradient(0deg,
+                    rgba(9, 17, 31, 0.25),
+                    rgba(9, 17, 31, 0.1)),
+                url("image/0923-01.avif") center / cover;
+            border: 1px solid var(--line);
         }
 
         .stat-number {
             font-size: 2rem;
             font-weight: 800;
             color: var(--accent);
+        }
+
+        /* S04 技術能力 */
+        #s04 {
+            background: #101a2c;
         }
 
         .tag {
@@ -203,108 +222,35 @@
             color: #9eeadf;
             border-radius: 30px;
             padding: 6px 12px;
-            font-size: .8rem;
+            font-size: 0.8rem;
             margin: 4px 4px 4px 0;
         }
 
-        /* 專案圖片區 */
-        .project-cover {
-            height: 180px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #26335b, #164e63);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            color: #b5fff3;
-        }
-
-        /* 頁尾 */
-        .footer {
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            padding: 30px 0;
-        }
-
-        /* 登入與註冊視窗 */
-        .modal-content {
-            background: #f8fafc;
-            color: #1e293b;
-            border: 0;
-            border-radius: 18px;
-            overflow: hidden;
-        }
-
-        .modal-header {
-            background: #d9f9f1;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .modal-footer .btn-link {
-            margin-right: auto;
-        }
-
-        .form-control {
-            border-radius: 9px;
-        }
-
-        .form-check-input:checked {
-            background-color: #0d9488;
-            border-color: #0d9488;
-        }
-
-        @media (max-width: 767px) {
-            .section-pad {
-                padding: 60px 0;
-            }
-
-            .hero {
-                min-height: 70vh;
-            }
-
-            .photo-panel {
-                min-height: 280px;
-            }
-
-            .glass-card {
-                padding: 20px;
-            }
-        }
-
-
         /* S05 我的工作信念 */
-
         #s05 {
-            background-color: #0b1120;
-            color: white;
+            background: #0b1120;
+            padding: 90px 0;
         }
 
         .belief-card {
-            background-color: #141e31;
+            background: #141e31;
             border: 1px solid #29364d;
             border-radius: 18px;
             padding: 40px 30px;
             text-align: center;
             height: 100%;
-
-            /* 動畫時間 */
             transition: all 0.3s ease;
         }
 
-        /* 滑鼠移入卡片 */
         .belief-card:hover {
             transform: translateY(-10px);
-            border-color: #5eead4;
+            border-color: var(--accent);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
         .belief-icon {
             font-size: 40px;
-            color: #5eead4;
+            color: var(--accent);
             margin-bottom: 25px;
         }
 
@@ -314,16 +260,14 @@
         }
 
         .belief-card p {
-            color: #a6b4c8;
+            color: var(--muted);
             line-height: 1.9;
+            margin-bottom: 0;
         }
 
-
-        /* Section 06：關於我 */
-
+        /* S06 開發理念 */
         #s06 {
             background: #101a2c;
-            color: #f1f5f9;
             overflow: hidden;
         }
 
@@ -336,7 +280,6 @@
             position: relative;
         }
 
-        /* 圖片右側漸層 */
         #s06 .about-image::after {
             content: "";
             position: absolute;
@@ -346,14 +289,13 @@
                     rgba(16, 26, 44, 0.65));
         }
 
-        /* 右側文字區 */
         #s06 .about-content {
             padding: 75px 8%;
             max-width: 850px;
         }
 
         #s06 .about-label {
-            color: #5eead4;
+            color: var(--accent);
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 3px;
@@ -368,17 +310,16 @@
         }
 
         #s06 .about-highlight {
-            color: #5eead4;
+            color: var(--accent);
         }
 
         #s06 .about-description {
-            color: #a6b4c8;
+            color: var(--muted);
             font-size: 16px;
             line-height: 2;
             margin-bottom: 20px;
         }
 
-        /* 技術標籤 */
         #s06 .about-skills {
             display: flex;
             flex-wrap: wrap;
@@ -395,9 +336,8 @@
             font-size: 14px;
         }
 
-        /* 按鈕 */
         #s06 .about-btn {
-            background: #5eead4;
+            background: var(--accent);
             color: #08211e;
             border: none;
             border-radius: 10px;
@@ -412,8 +352,80 @@
             box-shadow: 0 8px 25px rgba(94, 234, 212, 0.2);
         }
 
+        /* S07 專案作品 */
+        #s07 {
+            background: #0b1120;
+        }
+
+        .project-cover {
+            height: 180px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #26335b, #164e63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: #b5fff3;
+        }
+
+        /* S08 聯絡方式 */
+        #s08 {
+            background: #101a2c;
+        }
+
+        /* 頁尾 */
+        .footer {
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            padding: 30px 0;
+        }
+
+        /* 會員視窗 */
+        .modal-content {
+            background: #f8fafc;
+            color: #1e293b;
+            border: 0;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: #d9f9f1;
+        }
+
+        .modal-footer .btn-link {
+            margin-right: auto;
+        }
+
+        .form-control {
+            border-radius: 9px;
+        }
+
+        .form-check-input:checked {
+            background-color: #0d9488;
+            border-color: #0d9488;
+        }
+
         /* 手機版 */
         @media (max-width: 767px) {
+
+            .section-pad,
+            #s05 {
+                padding: 60px 0;
+            }
+
+            #s02 {
+                min-height: 70vh;
+            }
+
+            #s03 .photo-panel {
+                min-height: 280px;
+            }
+
+            .glass-card {
+                padding: 20px;
+            }
+
             #s06 .about-image {
                 min-height: 280px;
             }
@@ -432,65 +444,416 @@
                 font-size: 30px;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .glass-card,
+            .belief-card,
+            .btn-glow,
+            #s06 .about-btn {
+                transition: none;
+            }
+        }
+
+
+        /* S09 作品集展示 */
+        #s09 {
+            background: #0b1120;
+            color: #f1f5f9;
+        }
+
+        #s09 .s09-highlight {
+            color: #5eead4;
+        }
+
+        /* 作品卡片 */
+        #s09 .portfolio-card {
+            background: #141e31;
+            border: 1px solid #29364d;
+            border-radius: 18px;
+            padding: 30px;
+            gap: 25px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        /* 滑鼠移入效果 */
+        #s09 .portfolio-card:hover {
+            transform: translateY(-8px);
+            border-color: #5eead4;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 左側圖示 */
+        #s09 .portfolio-icon {
+            font-size: 55px;
+            color: #5eead4;
+            min-width: 75px;
+            text-align: center;
+        }
+
+        /* 右側內容 */
+        #s09 .portfolio-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        #s09 .portfolio-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        #s09 .portfolio-content p {
+            color: #a6b4c8;
+            line-height: 1.9;
+            min-height: 105px;
+        }
+
+        /* 查看專案按鈕 */
+        #s09 .btn-outline-success {
+            border-color: #5eead4;
+            color: #5eead4;
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: 600;
+        }
+
+        #s09 .btn-outline-success:hover {
+            background: #5eead4;
+            color: #08211e;
+        }
+
+        /* 尚未提供連結 */
+        #s09 .portfolio-status {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            border: 1px dashed #52627a;
+            border-radius: 10px;
+            color: #a6b4c8;
+        }
+
+        /* 手機版 */
+        @media (max-width: 767px) {
+            #s09 .portfolio-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+
+            #s09 .portfolio-icon {
+                font-size: 45px;
+            }
+
+            #s09 .portfolio-content p {
+                min-height: auto;
+            }
+        }
+
+
+        /* S10 學經歷介紹 */
+        #s10 {
+            background-color: #101a2c;
+            color: #f1f5f9;
+            overflow: hidden;
+            min-height: 650px;
+        }
+
+        /* 左側內容 */
+        #s10 .s10-content {
+            padding: 80px 35px 80px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 英文小標題 */
+        #s10 .s10-label {
+            color: #5eead4;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        /* 主標題 */
+        #s10 .s10-title {
+            font-size: clamp(30px, 3vw, 46px);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        #s10 .s10-title span {
+            color: #5eead4;
+        }
+
+        /* 介紹文字 */
+        #s10 .s10-description {
+            color: #a6b4c8;
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        /* 學經歷列表 */
+        #s10 .s10-list {
+            margin: 0 0 30px;
+        }
+
+        #s10 .s10-list dt,
+        #s10 .s10-list dd {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #29364d;
+        }
+
+        /* 左側欄位名稱 */
+        #s10 .s10-list dt {
+            color: #5eead4;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* 右側詳細內容 */
+        #s10 .s10-list dd {
+            color: #cbd5e1;
+            line-height: 1.9;
+            margin-bottom: 0;
+        }
+
+        #s10 .s10-list dd p {
+            margin-bottom: 10px;
+        }
+
+        #s10 .s10-list dd p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 列表圖示 */
+        #s10 .s10-list dd i {
+            color: #818cf8;
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* 技術標籤 */
+        #s10 .s10-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        #s10 .s10-skills span {
+            background-color: #162b3a;
+            border: 1px solid #355064;
+            border-radius: 30px;
+            color: #9eeadf;
+            padding: 6px 14px;
+            font-size: 13px;
+        }
+
+        /* 查看作品按鈕 */
+        #s10 .s10-btn {
+            background-color: #5eead4;
+            color: #08211e;
+            border-radius: 10px;
+            padding: 13px 25px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        #s10 .s10-btn:hover {
+            background-color: #99f6e4;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(94, 234, 212, 0.2);
+        }
+
+        /* 右側圖片 */
+        #s10 .s10-image {
+            right: 0;
+            width: 40%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* 圖片左側漸層 */
+        #s10 .s10-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    #101a2c 0%,
+                    rgba(16, 26, 44, 0.55) 25%,
+                    transparent 70%);
+        }
+
+        /* 平板與手機 */
+        @media (max-width: 991px) {
+            #s10 .s10-content {
+                padding: 60px 20px 60px 0;
+            }
+
+            #s10 .s10-image {
+                width: 38%;
+                opacity: 0.35;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #s10 {
+                min-height: auto;
+            }
+
+            #s10 .s10-content {
+                padding: 60px 10px;
+            }
+
+            #s10 .s10-list dt {
+                padding-bottom: 5px;
+                border-bottom: none;
+            }
+
+            #s10 .s10-list dd {
+                padding-top: 5px;
+            }
+
+            /* S11 快速導覽 */
+            #s11 {
+                background-color: #101a2c;
+                padding: 70px 0;
+                color: #f1f5f9;
+            }
+
+            /* 標題 */
+            #s11 .s11-highlight {
+                color: #5eead4;
+            }
+
+            /* 導覽選單 */
+            #s11 .nav {
+                gap: 15px;
+            }
+
+            /* 選單連結 */
+            #s11 .nav-link {
+                color: #cbd5e1;
+                background-color: #141e31;
+                border: 1px solid #29364d;
+                border-radius: 12px;
+                padding: 15px 25px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            /* 滑鼠移入效果 */
+            #s11 .nav-link:hover {
+                color: #5eead4;
+                border-color: #5eead4;
+                background-color: #162b3a;
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            }
+
+            /* 手機版 */
+            @media (max-width: 767px) {
+                #s11 {
+                    padding: 50px 0;
+                }
+
+                #s11 .nav {
+                    gap: 10px;
+                }
+
+                #s11 .nav-item {
+                    width: calc(50% - 10px);
+                }
+
+                #s11 .nav-link {
+                    text-align: center;
+                    padding: 15px 10px;
+                    font-size: 14px;
+                }
+            }
+
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- 導覽列 -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container py-2">
+    <!-- S01 導覽列 -->
+    <section id="s01" class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container py-2">
 
-            <a class="navbar-brand" href="#top">
-                DEV<span class="brand-dot">.</span> PORTFOLIO
-            </a>
+                <a class="navbar-brand" href="#s02">
+                    DEV<span class="brand-dot">.</span> PORTFOLIO
+                </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-                aria-controls="mainNav" aria-expanded="false" aria-label="展開選單">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="展開選單">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">關於我</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s02">首頁</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">技術能力</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s03">關於我</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">專案作品</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s04">技術能力</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">聯絡方式</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s05">工作信念</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-ghost btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#loginModal">
-                            登入
-                        </button>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s06">開發理念</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-glow btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#registerModal">
-                            註冊
-                        </button>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s07">專案作品</a>
+                        </li>
 
-                </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s08">聯絡方式</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-ghost btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                                登入
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-glow btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                註冊
+                            </button>
+                        </li>
+
+                    </ul>
+                </div>
+
             </div>
+        </nav>
+    </section>
 
-        </div>
-    </nav>
-
-    <!-- 首頁主視覺 -->
-    <header id="top" class="hero">
+    <!-- S02 首頁主視覺 -->
+    <section id="s02">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
@@ -513,11 +876,11 @@
                     </p>
 
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="#projects" class="btn btn-glow btn-lg px-4">
+                        <a href="#s07" class="btn btn-glow btn-lg px-4">
                             探索我的作品
                         </a>
 
-                        <a href="#about" class="btn btn-ghost btn-lg px-4">
+                        <a href="#s03" class="btn btn-ghost btn-lg px-4">
                             了解更多
                         </a>
                     </div>
@@ -525,10 +888,10 @@
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- 關於我 -->
-    <section id="about" class="section-pad">
+    <!-- S03 個人介紹 -->
+    <section id="s03" class="section-pad">
         <div class="container">
             <div class="row g-5 align-items-center">
 
@@ -602,9 +965,8 @@
         </div>
     </section>
 
-    <!-- 技術能力 -->
-    <section id="skills" class="section-pad" style="background: #101a2c;">
-
+    <!-- S04 技術能力 -->
+    <section id="s04" class="section-pad">
         <div class="container">
 
             <div class="eyebrow mb-2">TECH STACK</div>
@@ -669,8 +1031,145 @@
         </div>
     </section>
 
-    <!-- 專案作品 -->
-    <section id="projects" class="section-pad">
+    <!-- S05 我的工作信念 -->
+    <section id="s05">
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <div class="eyebrow mb-2">MY WORK VALUES</div>
+
+                <h2 class="section-heading">
+                    我的<span style="color: var(--accent);">工作信念</span>
+                </h2>
+
+                <p class="section-sub">
+                    持續學習、重視品質、勇於挑戰
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- 第一張卡片 -->
+                <div class="col-md-4">
+                    <div class="belief-card">
+
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <h4>持續學習</h4>
+
+                        <p>
+                            保持對新技術的好奇心，
+                            持續學習程式設計與開發工具，
+                            不斷提升自己的專業能力。
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- 第二張卡片 -->
+                <div class="col-md-4">
+                    <div class="belief-card">
+
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <h4>重視品質</h4>
+
+                        <p>
+                            不只追求功能能夠運作，
+                            更重視程式碼的可讀性、
+                            維護性與使用者體驗。
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- 第三張卡片 -->
+                <div class="col-md-4">
+                    <div class="belief-card">
+
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+
+                        <h4>勇於挑戰</h4>
+
+                        <p>
+                            面對開發過程中的問題，
+                            主動尋找解決方法，
+                            透過實作與除錯累積經驗。
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- S06 開發理念 -->
+    <section id="s06">
+        <div class="container-fluid p-0">
+            <div class="row g-0 align-items-stretch">
+
+                <!-- 左側圖片 -->
+                <div class="col-md-5">
+                    <div class="about-image" style="background-image: url('image/0923-01.avif');" role="img"
+                        aria-label="開發理念介紹圖片">
+                    </div>
+                </div>
+
+                <!-- 右側介紹 -->
+                <div class="col-md-7">
+                    <div class="about-content">
+
+                        <div class="about-label">
+                            DEVELOPMENT PHILOSOPHY / 開發理念
+                        </div>
+
+                        <h2 class="about-title">
+                            不只是撰寫程式，<br>
+                            更是<span class="about-highlight">打造解決方案。</span>
+                        </h2>
+
+                        <p class="about-description">
+                            我正朝全端軟體工程師的方向發展，
+                            持續學習前端介面、後端 API 與資料庫整合，
+                            希望透過程式開發解決實際問題。
+                        </p>
+
+                        <p class="about-description">
+                            目前正在開發 AI Marketplace 電商平台，
+                            使用 React、FastAPI 與 MySQL，
+                            已完成商品管理、圖片上傳與 API 串接等功能，
+                            並持續擴充會員及訂單系統。
+                        </p>
+
+                        <div class="about-skills">
+                            <span>React</span>
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>MySQL</span>
+                        </div>
+
+                        <a href="#s07" class="btn about-btn">
+                            了解我的作品
+                            <i class="fa-solid fa-arrow-right ms-2"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- S07 專案作品 -->
+    <section id="s07" class="section-pad">
         <div class="container">
 
             <div class="eyebrow mb-2">SELECTED WORK</div>
@@ -747,9 +1246,8 @@
         </div>
     </section>
 
-    <!-- 聯絡方式 -->
-    <section id="contact" class="section-pad" style="background: #101a2c;">
-
+    <!-- S08 聯絡方式 -->
+    <section id="s08" class="section-pad">
         <div class="container text-center">
 
             <div class="eyebrow mb-2">LET'S CONNECT</div>
@@ -770,70 +1268,109 @@
         </div>
     </section>
 
-
-    <!-- S05 我的工作信念 -->
-    <section id="s05" class="py-5">
+    <!-- S09 作品集展示 -->
+    <section id="s09" class="section-pad">
         <div class="container">
 
             <div class="text-center mb-5">
-                <h2 class="fw-bold">
-                    我的<span class="text-success">工作信念</span>
+                <div class="eyebrow mb-2">MY PORTFOLIO</div>
+                <h2 class="section-heading">
+                    我的<span class="s09-highlight">作品集</span>
                 </h2>
-                <p class="text-secondary">
-                    持續學習、重視品質、勇於挑戰
+                <p class="section-sub">
+                    從前端網頁到後端系統，透過實際開發累積技術與經驗。
                 </p>
             </div>
 
             <div class="row g-4">
 
-                <!-- 第一張卡片 -->
-                <div class="col-md-4">
-                    <div class="belief-card">
-                        <div class="belief-icon">
-                            <i class="fa-solid fa-book-open"></i>
+                <!-- 作品一：AI Marketplace -->
+                <div class="col-md-6">
+                    <div class="portfolio-card d-flex">
+                        <div class="portfolio-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
 
-                        <h4>持續學習</h4>
+                        <div class="portfolio-content">
+                            <h3>AI Marketplace</h3>
+                            <p>
+                                使用 React、FastAPI 與 MySQL
+                                開發的電商平台，整合商品管理、
+                                圖片上傳與 REST API。
+                            </p>
 
-                        <p>
-                            保持對新技術的好奇心，
-                            持續學習程式設計與開發工具，
-                            不斷提升自己的專業能力。
-                        </p>
+                            <a href="https://github.com/RianWang0625/AI-Marketplace" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-outline-success d-block">
+                                查看專案
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 第二張卡片 -->
-                <div class="col-md-4">
-                    <div class="belief-card">
-                        <div class="belief-icon">
+                <!-- 作品二：ERP 管理系統 -->
+                <div class="col-md-6">
+                    <div class="portfolio-card d-flex">
+                        <div class="portfolio-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+
+                        <div class="portfolio-content">
+                            <h3>ERP 管理系統</h3>
+                            <p>
+                                使用 C# WinForms 與 SQL Server
+                                製作桌面管理系統，練習資料新增、
+                                查詢、修改及刪除等功能。
+                            </p>
+
+                            <span class="portfolio-status">
+                                專案展示連結待補充
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品三：HTML / CSS 個人網站 -->
+                <div class="col-md-6">
+                    <div class="portfolio-card d-flex">
+                        <div class="portfolio-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <div class="portfolio-content">
+                            <h3>個人作品集網站</h3>
+                            <p>
+                                結合 HTML、CSS、Bootstrap 5
+                                與 Font Awesome，製作響應式網站，
+                                並加入卡片 Hover 動畫與會員視窗。
+                            </p>
+
+                            <a href="https://github.com/RianWang0625/project09211216" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-outline-success d-block">
+                                查看專案
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品四：未來作品預留 -->
+                <div class="col-md-6">
+                    <div class="portfolio-card d-flex">
+                        <div class="portfolio-icon">
                             <i class="fa-solid fa-code"></i>
                         </div>
 
-                        <h4>重視品質</h4>
+                        <div class="portfolio-content">
+                            <h3>下一個開發作品</h3>
+                            <p>
+                                持續探索新的開發技術，
+                                未來將在此展示更多完整的
+                                網站應用與程式開發成果。
+                            </p>
 
-                        <p>
-                            不只追求功能能夠運作，
-                            更重視程式碼的可讀性、
-                            維護性與使用者體驗。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 第三張卡片 -->
-                <div class="col-md-4">
-                    <div class="belief-card">
-                        <div class="belief-icon">
-                            <i class="fa-solid fa-rocket"></i>
+                            <span class="portfolio-status">
+                                敬請期待
+                            </span>
                         </div>
-
-                        <h4>勇於挑戰</h4>
-
-                        <p>
-                            面對開發過程中的問題，
-                            主動尋找解決方法，
-                            透過實作與除錯累積經驗。
-                        </p>
                     </div>
                 </div>
 
@@ -841,67 +1378,284 @@
         </div>
     </section>
 
+    <!-- S10 學經歷介紹 -->
+    <section id="s10" style="position: relative;">
 
-    <!-- Section 06：關於我 -->
-    <section id="s06" class="about-section">
+        <div class="container">
+            <div class="row">
 
-        <div class="container-fluid p-0">
-            <div class="row g-0 align-items-stretch">
-
-                <!-- 左邊：圖片 -->
-                <div class="col-md-5 d-none d-md-block">
-                    <div class="about-image bg-img" style="background-image: url('image/0923-01.avif');">
-                    </div>
-                </div>
-
-                <!-- 右邊：個人介紹 -->
+                <!-- 左側學經歷內容 -->
                 <div class="col-md-7">
-                    <div class="about-content">
 
-                        <div class="about-label">
-                            ABOUT ME / 關於我
+                    <div class="s10-content">
+
+                        <div class="s10-label">
+                            EDUCATION & EXPERIENCE
                         </div>
 
-                        <h2 class="about-title">
-                            不只是撰寫程式，<br>
-                            更是<span class="about-highlight">打造解決方案。</span>
+                        <h2 class="s10-title">
+                            我的<span>學經歷</span>
                         </h2>
 
-                        <p class="about-description">
-                            我正朝全端軟體工程師的方向發展，
-                            持續學習前端介面、後端 API 與資料庫整合，
-                            希望透過程式開發解決實際問題。
+                        <p class="s10-description">
+                            從學術研究到實際專案開發，
+                            持續累積程式設計、系統整合與問題解決能力。
                         </p>
 
-                        <p class="about-description">
-                            目前正在開發 AI Marketplace 電商平台，
-                            使用 React、FastAPI 與 MySQL，
-                            已完成商品管理、圖片上傳與 API 串接等功能，
-                            並持續擴充會員及訂單系統。
-                        </p>
+                        <dl class="row s10-list">
 
-                        <!-- 技術標籤 -->
-                        <div class="about-skills">
-                            <span>React</span>
-                            <span>JavaScript</span>
-                            <span>Python</span>
-                            <span>FastAPI</span>
-                            <span>MySQL</span>
-                        </div>
 
-                        <!-- 按鈕 -->
-                        <a href="#projects" class="btn about-btn">
-                            了解我的作品
+                            <!-- 個人背景 -->
+                            <dt class="col-sm-3">
+                                個人背景
+                            </dt>
+
+                            <dd class="col-sm-9">
+                                目前正朝全端軟體工程師方向發展，
+                                持續精進 JavaScript、React、Python
+                                與資料庫技術，並透過個人專案累積實務能力。
+                            </dd>
+
+
+                            <!-- 學歷 -->
+                            <dt class="col-sm-3">
+                                學歷
+                            </dt>
+
+                            <dd class="col-sm-9">
+                                <p>
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    大學肄業
+                                </p>
+
+                                <p>
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                    持續學習程式設計與全端網站開發技術
+                                </p>
+
+                                <p>
+                                    <i class="fa-solid fa-code"></i>
+                                    透過實際專案累積開發經驗與技術能力
+                                </p>
+                            </dd>
+
+
+                            <!-- 工作經驗 -->
+                            <dt class="col-sm-3">
+                                工作經驗
+                            </dt>
+
+                            <dd class="col-sm-9">
+                                <p>
+                                    <i class="fa-solid fa-briefcase"></i>
+                                    教育與教學相關工作經驗
+                                </p>
+
+                                <p>
+                                    <i class="fa-solid fa-users"></i>
+                                    累積溝通協調與問題處理能力
+                                </p>
+
+                                <p>
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                    持續透過個人專案累積軟體開發經驗
+                                </p>
+                            </dd>
+
+                            <!-- 專案經歷 -->
+                            <dt class="col-sm-3">
+                                專案經歷
+                            </dt>
+
+                            <dd class="col-sm-9">
+                                <p>
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    AI Marketplace 全端電商平台
+                                </p>
+
+                                <p>
+                                    <i class="fa-solid fa-database"></i>
+                                    C# WinForms + SQL Server ERP 系統
+                                </p>
+
+                                <p>
+                                    <i class="fa-solid fa-code"></i>
+                                    HTML / CSS / Bootstrap 個人作品集
+                                </p>
+                            </dd>
+
+                            <!-- 技術方向 -->
+                            <dt class="col-sm-3">
+                                技術方向
+                            </dt>
+
+                            <dd class="col-sm-9">
+                                <div class="s10-skills">
+                                    <span>JavaScript</span>
+                                    <span>React</span>
+                                    <span>Python</span>
+                                    <span>FastAPI</span>
+                                    <span>MySQL</span>
+                                    <span>C#</span>
+                                </div>
+                            </dd>
+
+                        </dl>
+
+                        <a href="#s09" class="btn s10-btn">
+                            查看我的作品
                             <i class="fa-solid fa-arrow-right ms-2"></i>
                         </a>
 
                     </div>
+
                 </div>
 
             </div>
+
+            <!-- 右側背景圖片 -->
+            <div class="row">
+                <div class="col-md-5 bg-img d-none d-md-block s10-image" style="position: absolute;
+                       background-image: url('image/0923-01.avif');
+                       top: 0;
+                       bottom: 0;">
+                </div>
+            </div>
+
         </div>
 
     </section>
+
+
+    <!-- S11 聯絡我 -->
+    <section id="s11" class="section-pad">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="eyebrow mb-2">GET IN TOUCH</div>
+                <h2 class="section-heading">
+                    聯絡我
+                    <span class="s11-highlight">CONTACT ME</span>
+                </h2>
+                <p class="section-sub">
+                    歡迎交流技術、專案合作或工作機會。
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="contactName" name="name" placeholder="姓名"
+                                autocomplete="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="contactEmail" name="email" placeholder="電子信箱"
+                                autocomplete="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" id="contactSubject" name="subject" required>
+                                <option value="" selected disabled>
+                                    ---聯絡主題---
+                                </option>
+
+                                <option value="技術交流">
+                                    技術交流
+                                </option>
+
+                                <option value="專案合作">
+                                    專案合作
+                                </option>
+                                <option value="工作機會">
+                                    工作機會
+                                </option>
+                                <option value="其他問題">
+                                    其他問題
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="contactMessage" name="message" rows="8"
+                                placeholder="請輸入訊息內容..." required></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="reset" class="btn btn-secondary me-2">
+                                取消
+                            </button>
+                            <button type="submit" class="btn btn-glow">
+                                送出
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="s11-map">
+                        <iframe src="https://www.google.com/maps?q=台中火車站&output=embed" width="100%" height="100%"
+                            style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="Google 地圖">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- S11 快速導覽 -->
+    <section id="s11">
+        <div class="container">
+
+            <h2 class="text-center fw-bold mb-4">
+                快速<span class="s11-highlight">導覽</span>
+            </h2>
+
+            <ul class="nav justify-content-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#s02">
+                        <i class="fa-solid fa-house me-2"></i>
+                        首頁
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#s03">
+                        <i class="fa-solid fa-user me-2"></i>
+                        關於我
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#s04">
+                        <i class="fa-solid fa-code me-2"></i>
+                        技術能力
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#s09">
+                        <i class="fa-solid fa-laptop-code me-2"></i>
+                        作品集
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#s10">
+                        <i class="fa-solid fa-graduation-cap me-2"></i>
+                        學經歷
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#s08">
+                        <i class="fa-solid fa-envelope me-2"></i>
+                        聯絡方式
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </section>
+
 
 
     <!-- 頁尾 -->
@@ -971,13 +1725,14 @@
 
                         </div>
 
-                        <!-- 右側註冊欄位 -->
+                        <!-- 右側註冊資料 -->
                         <div class="col-md-6">
 
                             <div class="mb-3">
                                 <label for="username" class="form-label">
                                     帳號
                                 </label>
+
                                 <input type="text" class="form-control" id="username" placeholder="請輸入帳號"
                                     autocomplete="username">
                             </div>
@@ -986,6 +1741,7 @@
                                 <label for="password" class="form-label">
                                     密碼
                                 </label>
+
                                 <input type="password" class="form-control" id="password" placeholder="請輸入密碼"
                                     autocomplete="new-password">
                             </div>
@@ -994,6 +1750,7 @@
                                 <label for="confirmPassword" class="form-label">
                                     確認密碼
                                 </label>
+
                                 <input type="password" class="form-control" id="confirmPassword" placeholder="請再次輸入密碼"
                                     autocomplete="new-password">
                             </div>
@@ -1002,6 +1759,7 @@
                                 <label for="email" class="form-label">
                                     Email
                                 </label>
+
                                 <input type="email" class="form-control" id="email" placeholder="請輸入 Email"
                                     autocomplete="email">
                             </div>

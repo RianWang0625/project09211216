@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動畫練習</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="all.min.css">
+
+    <style>
+        .box01 {
+            height: 180px;
+        }
+
+        .space {
+            height: 350px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container my-5">
+
+        <h1 class="text-center fw-bold mb-5">
+            WOW.js 動畫練習
+        </h1>
+
+        <p class="text-center">
+            往下捲動觀看動畫效果
+        </p>
+
+        <div class="space"></div>
+
+        <!-- 第一個色塊：左側滑入 -->
+        <div class="row">
+            <div class="col-4 mt-3">
+                <div class="box01 bg-success wow slideInLeft" data-wow-delay="0s" data-wow-duration="1s"
+                    data-wow-iteration="1">
+                </div>
+            </div>
+        </div>
+
+        <div class="space"></div>
+
+        <!-- 第二個色塊：右側滑入 -->
+        <div class="row justify-content-end my-3">
+            <div class="col-4 mt-3">
+                <div class="box01 bg-primary wow slideInRight" data-wow-delay="0s" data-wow-duration="1s"
+                    data-wow-iteration="1">
+                </div>
+            </div>
+        </div>
+
+        <div class="space"></div>
+
+        <!-- 第三個色塊：下方滑入 -->
+        <div class="row justify-content-center">
+            <div class="col-4 mt-3">
+                <div class="box01 bg-info wow slideInUp" data-wow-delay="0s" data-wow-duration="1s"
+                    data-wow-iteration="1">
+                </div>
+            </div>
+        </div>
+
+        <div class="space"></div>
+
+        <!-- 動畫測試文字 -->
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="display-1 fw-bold text-center wow bounceIn" data-wow-delay="0s" data-wow-duration="1s"
+                    data-wow-iteration="1">
+                    動畫測試
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-4 mt-3 text-center">
+                <i class="fa-solid fa-heart-pulse text-danger wow heartBeat"
+                    style="font-size: 200px; display: inline-block;" data-wow-duration="0.8s" data-wow-delay="3s"
+                    data-wow-iteration="infinite">
+                </i>
+            </div>
+        </div>
+
+
+        <div class="space"></div>
+
+    </div>
+
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="wow.min.js"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+
+</body>
+
+</html>
