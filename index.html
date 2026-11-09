@@ -1,17 +1,237 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-tw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學習歷程首頁</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="全端開發與 AI 應用個人形象網站，展示技術能力、專案作品與學習歷程。">
+  <title>Rian | Full-Stack Developer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+  <style>
+    :root { --bg:#08111f; --surface:#101d30; --surface2:#14243a; --line:#29405a; --text:#edf5ff; --muted:#9db1c9; --mint:#60e8cf; --purple:#a39aff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif; line-height:1.8; }
+    a { text-decoration:none; } section { padding:90px 0; scroll-margin-top:76px; }
+    .soft { background:#0c192a; } .container { max-width:1140px; }
+    .navbar { background:rgba(8,17,31,.97); border-bottom:1px solid var(--line); }
+    .navbar-brand { color:var(--mint)!important; font-weight:900; letter-spacing:1px; }
+    .navbar .nav-link { color:var(--muted); margin-left:11px; } .navbar .nav-link:hover { color:var(--mint); }
+    .navbar-toggler { border-color:var(--line); } .navbar-toggler-icon { filter:invert(1); }
+    .eyebrow { color:var(--mint); font-size:.82rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; }
+    h1,h2,h3,h4,h5 { color:var(--text); font-weight:800; line-height:1.35; }
+    .section-title { font-size:clamp(1.9rem,4vw,2.7rem); margin:12px 0 18px; }
+    .muted { color:var(--muted); } .accent { color:var(--mint); }
+    .intro { max-width:710px; margin-bottom:38px; }
+    .btn-mint { background:var(--mint); color:#062029; font-weight:800; border:2px solid var(--mint); padding:11px 23px; border-radius:12px; }
+    .btn-mint:hover { background:#8af7e4; border-color:#8af7e4; color:#062029; }
+    .btn-outline-mint { border:2px solid var(--line); color:var(--text); padding:11px 23px; font-weight:700; border-radius:12px; }
+    .btn-outline-mint:hover { border-color:var(--mint); color:var(--mint); }
+    .panel { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:26px; height:100%; transition:transform .25s,border-color .25s; }
+    .panel:hover { transform:translateY(-5px); border-color:var(--mint); }
+    .icon-box { width:54px; height:54px; display:grid; place-items:center; background:#173c46; color:var(--mint); border-radius:15px; font-size:1.5rem; margin-bottom:18px; }
+    .tag { display:inline-block; color:#b7e8e2; border:1px solid #326c70; border-radius:999px; font-size:.78rem; padding:3px 12px; margin:4px 5px 0 0; }
+    .photo-placeholder { min-height:230px; background:linear-gradient(135deg,#152b42,#213d55); border:2px dashed #4d718a; border-radius:17px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:12px; color:#b8cddd; text-align:center; padding:18px; }
+    .photo-placeholder i { font-size:2.7rem; color:var(--mint); }
+    .photo-placeholder.tall { min-height:340px; }
+    .photo-placeholder.wide { min-height:315px; }
+    .photo-placeholder.small { min-height:185px; }
+    .hero { padding:125px 0 100px; background:radial-gradient(ellipse at 75% 30%,#193a4b 0%,#0b1b2c 36%,var(--bg) 75%); }
+    .hero h1 { font-size:clamp(2.5rem,5.8vw,4.7rem); font-weight:900; line-height:1.17; }
+    .hero .lead { color:#c5d4e5; max-width:650px; }
+    .hero-window { background:#0c1727; border:1px solid #38506b; border-radius:18px; overflow:hidden; box-shadow:0 24px 65px #0005; }
+    .window-bar { padding:13px 20px; border-bottom:1px solid var(--line); color:var(--muted); font-size:.82rem; }
+    .window-bar span { display:inline-block; width:10px; height:10px; margin-right:6px; border-radius:50%; background:#fb7b77; }
+    .window-bar span:nth-child(2){background:#f8c56f;} .window-bar span:nth-child(3){background:#72d7a0;}
+    .hero pre { color:#c8e5ff; padding:26px; margin:0; font-size:clamp(.8rem,2vw,1rem); overflow:auto; }
+    .stat-num { font-size:2.6rem; font-weight:900; color:var(--mint); line-height:1.2; }
+    .skill-row { margin-bottom:20px; } .skill-row .progress { background:#26374b; height:10px; border-radius:30px; }
+    .skill-row .progress-bar { background:linear-gradient(90deg,var(--mint),var(--purple)); }
+    .project-number { color:var(--purple); font-size:.8rem; font-weight:800; letter-spacing:2px; }
+    .step-number { width:44px; height:44px; display:grid; place-items:center; border:2px solid var(--mint); border-radius:50%; color:var(--mint); font-weight:900; margin-bottom:18px; }
+    .timeline { border-left:3px solid #366b70; margin-left:17px; padding-left:34px; }
+    .timeline-item { position:relative; padding:0 0 30px; }
+    .timeline-item::before { content:""; position:absolute; left:-44px; top:8px; width:17px; height:17px; background:var(--mint); border:4px solid var(--bg); border-radius:50%; box-shadow:0 0 0 2px var(--mint); }
+    .timeline-item:last-child { padding-bottom:0; }
+    .timeline-year { display:inline-block; color:var(--mint); font-weight:900; margin-bottom:10px; }
+    .faq .accordion-item { background:var(--surface); color:var(--text); border-color:var(--line); }
+    .faq .accordion-button { background:var(--surface); color:var(--text); font-weight:700; box-shadow:none; }
+    .faq .accordion-button:not(.collapsed) { color:var(--mint); background:#183047; }
+    .faq .accordion-button::after { filter:grayscale(1) brightness(3); }
+    .final-banner { background:linear-gradient(120deg,#153449,#27254c); border:1px solid #4d617d; border-radius:23px; padding:46px; }
+    footer { background:#050c15; border-top:1px solid var(--line); color:var(--muted); padding:25px 0; }
+    footer a { color:var(--mint); }
+    @media(max-width:767px) { section { padding:65px 0; } .hero { padding:90px 0 65px; } .final-banner { padding:28px 20px; } .navbar .nav-link { margin-left:0; } }
+  </style>
 </head>
 <body>
-    <div class="mytitle-01">學習歷程檔案</div>
+  <!-- 導覽列：不列入 15 個 Section -->
+  <nav class="navbar navbar-expand-lg sticky-top" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="#s01"><i class="fa-solid fa-code me-2"></i>RIAN.DEV</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="開啟導覽列"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#s02">關於我</a></li>
+          <li class="nav-item"><a class="nav-link" href="#s05">技術能力</a></li>
+          <li class="nav-item"><a class="nav-link" href="#s06">專案作品</a></li>
+          <li class="nav-item"><a class="nav-link" href="#s10">學習時間軸</a></li>
+          <li class="nav-item"><a class="nav-link" href="#s15">聯絡我</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- S01：首頁形象 -->
+  <section id="s01" class="hero">
+    <div class="container"><div class="row align-items-center g-5">
+      <div class="col-lg-7 wow fadeInLeft">
+        <div class="eyebrow mb-3">HELLO, WORLD!</div>
+        <h1>把想法寫成程式，<br><span class="accent">把程式變成作品。</span></h1>
+        <p class="lead mt-4">你好，我是 Rian，持續朝全端工程師與 AI 應用開發方向前進。喜歡透過實際專案學習，從介面、API 到資料庫，一步步實現功能。</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#s06" class="btn btn-mint">查看作品 <i class="fa-solid fa-arrow-right ms-2"></i></a>
+          <a href="#s15" class="btn btn-outline-mint">聯絡我</a>
+        </div>
+      </div>
+      <div class="col-lg-5 wow fadeInRight" data-wow-delay="0.15s">
+        <div class="hero-window"><div class="window-bar"><span></span><span></span><span></span> introduction.js</div>
+          <pre><code>const developer = {
+  name: "Rian",
+  focus: ["Full Stack", "AI"],
+  skills: ["JavaScript", "Python", "SQL"],
+  mindset: "Keep building"
+};
+
+console.log("Welcome!");</code></pre>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- S02：關於我 -->
+  <section id="s02" class="soft"><div class="container"><div class="row g-5 align-items-center">
+    <div class="col-lg-5 wow fadeInLeft"><div class="photo-placeholder tall"><i class="fa-regular fa-image"></i><strong>個人照片預留區</strong><small>之後可換成自己的形象照</small></div></div>
+    <div class="col-lg-7 wow fadeInRight"><span class="eyebrow">01 / ABOUT ME</span><h2 class="section-title">不只是學語法，更重視實際做出功能</h2>
+      <p class="muted">我對網站開發與軟體設計有濃厚興趣，從 C# 桌面應用程式延伸到前後端網站開發，透過動手實作累積開發經驗。</p>
+      <p class="muted">目前持續學習 JavaScript、React、Python、MySQL 等技術，也關注 AI 如何融入實際應用。</p>
+      <div><span class="tag">持續學習</span><span class="tag">獨立實作</span><span class="tag">問題解決</span></div>
+    </div>
+  </div></div></section>
+
+  <!-- S03：網站重點 -->
+  <section id="s03"><div class="container text-center"><div class="intro mx-auto wow fadeInUp"><span class="eyebrow">02 / OVERVIEW</span><h2 class="section-title">我的開發方向</h2><p class="muted">聚焦三個技術領域，持續累積能展示、能測試的作品。</p></div>
+    <div class="row g-4">
+      <div class="col-md-4 wow zoomIn"><div class="panel"><div class="stat-num">01</div><h4 class="mt-3">前端開發</h4><p class="muted mb-0">打造清楚易用的網站介面與 RWD 排版。</p></div></div>
+      <div class="col-md-4 wow zoomIn" data-wow-delay="0.12s"><div class="panel"><div class="stat-num">02</div><h4 class="mt-3">後端與資料庫</h4><p class="muted mb-0">設計 API、資料操作與基本商業邏輯。</p></div></div>
+      <div class="col-md-4 wow zoomIn" data-wow-delay="0.24s"><div class="panel"><div class="stat-num">03</div><h4 class="mt-3">AI 應用</h4><p class="muted mb-0">探索讓 AI 功能真正融入網站服務。</p></div></div>
+    </div>
+  </div></section>
+
+  <!-- S04：可製作的功能 -->
+  <section id="s04" class="soft"><div class="container"><div class="intro wow fadeInUp"><span class="eyebrow">03 / WHAT I BUILD</span><h2 class="section-title">我正在實作的網站功能</h2><p class="muted">從需求出發，把畫面與資料串成完整流程。</p></div>
+    <div class="row g-4">
+      <div class="col-md-4 wow fadeInUp"><div class="panel"><div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div><h4>互動式網頁</h4><p class="muted mb-0">表單、列表、卡片、搜尋與手機版畫面。</p></div></div>
+      <div class="col-md-4 wow fadeInUp" data-wow-delay="0.12s"><div class="panel"><div class="icon-box"><i class="fa-solid fa-server"></i></div><h4>API 與資料處理</h4><p class="muted mb-0">前後端資料交換、驗證與 CRUD 操作。</p></div></div>
+      <div class="col-md-4 wow fadeInUp" data-wow-delay="0.24s"><div class="panel"><div class="icon-box"><i class="fa-solid fa-cart-shopping"></i></div><h4>購物平台功能</h4><p class="muted mb-0">商品、庫存、購物車及訂單流程等功能。</p></div></div>
+    </div>
+  </div></section>
+
+  <!-- S05：技術能力 -->
+  <section id="s05"><div class="container"><div class="row g-5 align-items-center">
+    <div class="col-lg-5 wow fadeInLeft"><span class="eyebrow">04 / TECH STACK</span><h2 class="section-title">使用中的開發技術</h2><p class="muted">這些是目前接觸與使用的技術。右側以「學習重點」分類呈現，不把百分比當作正式能力評分。</p><div><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Vue</span><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">C#</span></div></div>
+    <div class="col-lg-7 wow fadeInRight"><div class="panel">
+      <div class="skill-row"><div class="d-flex justify-content-between"><strong>前端畫面 / RWD</strong><span class="muted">持續練習</span></div><div class="progress mt-2"><div class="progress-bar" style="width:75%"></div></div></div>
+      <div class="skill-row"><div class="d-flex justify-content-between"><strong>API / 後端邏輯</strong><span class="muted">專案實作</span></div><div class="progress mt-2"><div class="progress-bar" style="width:70%"></div></div></div>
+      <div class="skill-row"><div class="d-flex justify-content-between"><strong>SQL / 資料庫</strong><span class="muted">專案實作</span></div><div class="progress mt-2"><div class="progress-bar" style="width:70%"></div></div></div>
+      <div class="skill-row mb-0"><div class="d-flex justify-content-between"><strong>AI 功能整合</strong><span class="muted">下一步方向</span></div><div class="progress mt-2"><div class="progress-bar" style="width:45%"></div></div></div>
+      <small class="muted d-block mt-3">* 長條僅作視覺化示意，可依實際進度調整。</small>
+    </div></div>
+  </div></div></section>
+
+  <!-- S06：AI Marketplace -->
+  <section id="s06" class="soft"><div class="container"><div class="row g-5 align-items-center">
+    <div class="col-lg-7 wow fadeInLeft"><div class="photo-placeholder wide"><i class="fa-solid fa-images"></i><strong>AI Marketplace 專案截圖</strong><small>之後放首頁或商品列表畫面</small></div></div>
+    <div class="col-lg-5 wow fadeInRight"><span class="eyebrow">05 / FEATURED PROJECT</span><h2 class="section-title">AI Marketplace</h2><p class="muted">以多賣家購物平台為主題的全端專案，練習商品管理、圖片、庫存與前後端 API 串接。</p><div class="mb-4"><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">MySQL</span></div><a class="btn btn-mint" href="https://github.com/RianWang0625/AI-Marketplace" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github me-2"></i>查看 GitHub 專案</a></div>
+  </div></div></section>
+
+  <!-- S07：ERP -->
+  <section id="s07"><div class="container"><div class="row g-5 align-items-center">
+    <div class="col-lg-5 order-2 order-lg-1 wow fadeInLeft"><span class="eyebrow">06 / FEATURED PROJECT</span><h2 class="section-title">ERP 資料管理系統</h2><p class="muted">以 C# WinForms 與 SQL Server 開發的桌面資料管理作品，包含資料新增、查詢、修改與刪除等功能，並練習例外處理及資料呈現。</p><div><span class="tag">C#</span><span class="tag">WinForms</span><span class="tag">SQL Server</span></div></div>
+    <div class="col-lg-7 order-1 order-lg-2 wow fadeInRight"><div class="photo-placeholder wide"><i class="fa-solid fa-desktop"></i><strong>ERP 系統畫面預留區</strong><small>之後放系統操作截圖</small></div></div>
+  </div></div></section>
+
+  <!-- S08：其他練習作品 -->
+  <section id="s08" class="soft"><div class="container"><div class="intro wow fadeInUp"><span class="eyebrow">07 / MORE WORKS</span><h2 class="section-title">更多練習與作品</h2><p class="muted">保留展示空間，之後可換成其他實際完成的作品。</p></div><div class="row g-4">
+    <div class="col-md-4 wow fadeInUp"><div class="panel"><div class="photo-placeholder small mb-3"><i class="fa-regular fa-image"></i><small>網站截圖 01</small></div><h4>個人形象網站</h4><p class="muted mb-0">Bootstrap、RWD、動畫效果與版面設計。</p></div></div>
+    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.12s"><div class="panel"><div class="photo-placeholder small mb-3"><i class="fa-regular fa-image"></i><small>網站截圖 02</small></div><h4>API 資料展示</h4><p class="muted mb-0">練習讀取資料並動態產生畫面。</p></div></div>
+    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.24s"><div class="panel"><div class="photo-placeholder small mb-3"><i class="fa-regular fa-image"></i><small>網站截圖 03</small></div><h4>下一個作品</h4><p class="muted mb-0">預留給未來完成的新專案。</p></div></div>
+  </div></div></section>
+
+  <!-- S09：開發流程 -->
+  <section id="s09"><div class="container"><div class="intro mx-auto text-center wow fadeInUp"><span class="eyebrow">08 / WORKFLOW</span><h2 class="section-title">我的專案開發流程</h2><p class="muted">先確認需求，再逐步完成與測試，降低一次修改太多造成的問題。</p></div><div class="row g-4">
+    <div class="col-md-3 col-6 wow fadeInUp"><div class="panel"><div class="step-number">1</div><h5>需求整理</h5><p class="muted mb-0">列出必備功能與頁面。</p></div></div>
+    <div class="col-md-3 col-6 wow fadeInUp" data-wow-delay="0.1s"><div class="panel"><div class="step-number">2</div><h5>介面規劃</h5><p class="muted mb-0">確認操作流程及排版。</p></div></div>
+    <div class="col-md-3 col-6 wow fadeInUp" data-wow-delay="0.2s"><div class="panel"><div class="step-number">3</div><h5>功能開發</h5><p class="muted mb-0">連接 API 與資料庫。</p></div></div>
+    <div class="col-md-3 col-6 wow fadeInUp" data-wow-delay="0.3s"><div class="panel"><div class="step-number">4</div><h5>測試調整</h5><p class="muted mb-0">驗證功能並修正問題。</p></div></div>
+  </div></div></section>
+
+  <!-- S10：Timeline（老師要求） -->
+  <section id="s10" class="soft"><div class="container"><div class="row g-5">
+    <div class="col-lg-4 wow fadeInLeft"><span class="eyebrow">09 / TIMELINE</span><h2 class="section-title">我的學習時間軸</h2><p class="muted">從桌面應用到網站開發，再逐步探索 AI 應用的學習方向。</p></div>
+    <div class="col-lg-8"><div class="timeline">
+      <div class="timeline-item wow fadeInRight"><span class="timeline-year">第一階段</span><div class="panel"><h4>C# 與資料庫入門</h4><p class="muted mb-0">使用 WinForms、SQL Server 開發資料管理程式，熟悉資料表與 CRUD。</p></div></div>
+      <div class="timeline-item wow fadeInRight" data-wow-delay="0.1s"><span class="timeline-year">第二階段</span><div class="panel"><h4>網頁基礎與 RWD</h4><p class="muted mb-0">學習 HTML、CSS、Bootstrap、JavaScript，練習切版與互動效果。</p></div></div>
+      <div class="timeline-item wow fadeInRight" data-wow-delay="0.2s"><span class="timeline-year">第三階段</span><div class="panel"><h4>全端專案實作</h4><p class="muted mb-0">接觸 React、Python API、MySQL，練習前後端串接及購物平台功能。</p></div></div>
+      <div class="timeline-item wow fadeInRight" data-wow-delay="0.3s"><span class="timeline-year">下一階段</span><div class="panel"><h4>深入 AI 應用整合</h4><p class="muted mb-0">持續累積完整專案經驗，規劃將 LLM 與其他 AI 服務融入網站。</p></div></div>
+    </div></div>
+  </div></div></section>
+
+  <!-- S11：工具 -->
+  <section id="s11"><div class="container"><div class="intro text-center mx-auto wow fadeInUp"><span class="eyebrow">10 / TOOLS</span><h2 class="section-title">常用的開發工具</h2><p class="muted">從編輯器到版本控制，建立可持續維護的開發習慣。</p></div><div class="row g-4">
+    <div class="col-6 col-lg-3 wow zoomIn"><div class="panel text-center"><div class="icon-box mx-auto"><i class="fa-solid fa-code"></i></div><h5>VS Code</h5><p class="muted mb-0">撰寫與整理程式碼</p></div></div>
+    <div class="col-6 col-lg-3 wow zoomIn" data-wow-delay="0.1s"><div class="panel text-center"><div class="icon-box mx-auto"><i class="fa-brands fa-git-alt"></i></div><h5>Git</h5><p class="muted mb-0">追蹤版本與修改</p></div></div>
+    <div class="col-6 col-lg-3 wow zoomIn" data-wow-delay="0.2s"><div class="panel text-center"><div class="icon-box mx-auto"><i class="fa-brands fa-github"></i></div><h5>GitHub</h5><p class="muted mb-0">保存與展示作品</p></div></div>
+    <div class="col-6 col-lg-3 wow zoomIn" data-wow-delay="0.3s"><div class="panel text-center"><div class="icon-box mx-auto"><i class="fa-solid fa-database"></i></div><h5>資料庫工具</h5><p class="muted mb-0">檢視與管理資料</p></div></div>
+  </div></div></section>
+
+  <!-- S12：開發原則 -->
+  <section id="s12" class="soft"><div class="container"><div class="intro wow fadeInUp"><span class="eyebrow">11 / PRINCIPLES</span><h2 class="section-title">三個我重視的開發原則</h2></div><div class="row g-4">
+    <div class="col-md-4 wow fadeInUp"><div class="panel"><div class="icon-box"><i class="fa-solid fa-eye"></i></div><h4>清楚易懂</h4><p class="muted mb-0">讓使用者知道功能在哪裡、下一步怎麼操作。</p></div></div>
+    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.12s"><div class="panel"><div class="icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div><h4>方便維護</h4><p class="muted mb-0">適當拆分程式，避免把所有邏輯塞在一起。</p></div></div>
+    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.24s"><div class="panel"><div class="icon-box"><i class="fa-solid fa-vial-circle-check"></i></div><h4>完成測試</h4><p class="muted mb-0">功能寫完不代表完成，還要確認操作結果。</p></div></div>
+  </div></div></section>
+
+  <!-- S13：學習目標 -->
+  <section id="s13"><div class="container"><div class="intro mx-auto text-center wow fadeInUp"><span class="eyebrow">12 / ROADMAP</span><h2 class="section-title">接下來的學習規劃</h2><p class="muted">一步一步提升實作能力，而不是只追求學過多少工具。</p></div><div class="row g-4">
+    <div class="col-md-4 wow fadeInUp"><div class="panel"><span class="tag">短期</span><h4 class="mt-3">完成完整網站作品</h4><p class="muted mb-0">加強 JavaScript、版面設計、前後端資料串接。</p></div></div>
+    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.12s"><div class="panel"><span class="tag">中期</span><h4 class="mt-3">累積團隊開發能力</h4><p class="muted mb-0">熟悉 Git 流程、功能拆分、測試與程式碼維護。</p></div></div>
+    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.24s"><div class="panel"><span class="tag">長期</span><h4 class="mt-3">結合 AI 與網站服務</h4><p class="muted mb-0">探索 LLM API、智慧搜尋與其他應用情境。</p></div></div>
+  </div></div></section>
+
+  <!-- S14：常見問題 -->
+  <section id="s14" class="soft"><div class="container"><div class="row g-5">
+    <div class="col-lg-4 wow fadeInLeft"><span class="eyebrow">13 / FAQ</span><h2 class="section-title">關於我的幾個問題</h2><p class="muted">快速了解這個網站和目前的學習方向。</p></div>
+    <div class="col-lg-8 wow fadeInRight"><div class="accordion faq" id="faqAccordion">
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">這個網站是用什麼製作的？</button></h3><div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">使用 HTML、CSS、Bootstrap、Font Awesome，以及 WOW.js + Animate.css 製作。</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">目前主要學習什麼技術？</button></h3><div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">以 JavaScript、React、Python、SQL 與全端網站實作為主。</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">要去哪裡看專案程式碼？</button></h3><div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">可以前往下方 GitHub 連結，查看公開專案與程式碼。</div></div></div>
+    </div></div>
+  </div></div></section>
+
+  <!-- S15：聯絡與結尾 -->
+  <section id="s15"><div class="container"><div class="final-banner wow fadeInUp"><div class="row align-items-center g-4">
+    <div class="col-lg-8"><span class="eyebrow">14 / LET'S CONNECT</span><h2 class="section-title mb-3">一起交流技術與想法！</h2><p class="muted mb-0">這裡展示我的學習歷程與實作作品。歡迎透過 GitHub 查看程式碼，未來也會持續更新作品。</p></div>
+    <div class="col-lg-4 d-flex flex-wrap gap-3 justify-content-lg-end"><a href="https://github.com/RianWang0625" target="_blank" rel="noopener noreferrer" class="btn btn-mint"><i class="fa-brands fa-github me-2"></i>我的 GitHub</a><a href="#s01" class="btn btn-outline-mint"><i class="fa-solid fa-arrow-up me-2"></i>回到頂部</a></div>
+  </div></div><p class="text-center muted mt-4 mb-0">聯絡 Email：<strong>請在這裡填入你的信箱</strong></p></div></section>
+
+  <footer><div class="container d-flex flex-wrap justify-content-between gap-2"><span>© 2026 Rian. Made with HTML, CSS & Bootstrap.</span><span>15 Sections · Timeline · WOW.js</span></div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
 </body>
-    <div class="mytitle-01">學習歷程檔案檢視</div>
-    <ul>
-        <li><a href="0923.html" target="_blank">HTML CSS練習20260923</a></li>
-        <li><a href="0929.html" target="_blank">JS語法20260929</a></li>
-        <li><a href=""></a></li>
-    </ul>
 </html>
